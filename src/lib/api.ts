@@ -1,4 +1,10 @@
 // Cliente HTTP mínimo + manejo de PINs guardados en el navegador
+import { demoRequest } from './demoApi';
+
+/** true cuando se compila con VITE_DEMO=true (Vercel): todo funciona sin servidor. */
+export const DEMO =
+  import.meta.env.VITE_DEMO === 'true' ||
+  (typeof window !== 'undefined' && window.location.hostname.endsWith('.vercel.app'));
 
 const ADMIN_KEY = 'buzon:adminPin';
 const areaKey = (id: string) => `buzon:areaPin:${id}`;
@@ -29,6 +35,7 @@ export const auth = {
 };
 
 async function request<T>(method: string, url: string, body?: unknown, headers: Record<string, string> = {}): Promise<T> {
+  if (DEMO) return demoRequest<T>(method, url, body, headers);
   const res = await fetch(`/api${url}`, {
     method,
     headers: { 'Content-Type': 'application/json', ...headers },
