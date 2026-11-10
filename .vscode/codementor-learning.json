@@ -1,0 +1,16 @@
+{
+  "REACT-003": {
+    "occurrences": 4,
+    "confidence": 1,
+    "mastered_explicitly": false,
+    "first_seen": "2026-11-10T15:47:35.746Z",
+    "last_seen": "2026-11-10T16:38:56.119Z"
+  },
+  "CC-004": {
+    "occurrences": 6,
+    "confidence": 1,
+    "mastered_explicitly": false,
+    "first_seen": "2026-11-10T15:47:35.747Z",
+    "last_seen": "2026-11-10T16:45:22.892Z"
+  }
+}
